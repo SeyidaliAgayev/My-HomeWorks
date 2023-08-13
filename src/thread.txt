@@ -1,0 +1,33 @@
+Run ve Start methodlarinin ferqi, Runnable ve Thread ferqi: Her hansisa classi biz iki yolla thread olaraq teyin ede bilerik. Bunlardan
+biri hemin classi Thread classindan extend etmek, digeri ise hemin classi Runnable interface'nden implements etmekdir.
+Biz sadece run() etdikde yalniz run metodunun icerisindeki prosesleri ise salmis oluruq. Lakin threadi ishe sala bilmirik.
+Bunun ucun mutleq Start() metodunu ishe salmaq lazimdir. Runnable interface'ine nezer salsaq onun icerisinde yalniz run()
+metodunun oldugunu gore bilerik. Thread classi ise ozu Runnable'dan impelements olduguna gore onun icerisinde hem start
+hem de run metodunun oldugunu deye bilerik. Elave olaraq onu da demek olar ki run metodu bildiyimiz normal kod sirasi
+mentiqi ile isleyir. ThreadExample ve RunnableExample classlarinda buna uygun numuneye baxmaq olar:
+
+
+
+Volatile nedir? Atomic nedir? - Yazdigimiz threadlerde bezen bize threadin kesh yaddasdaki deyeri yox bize lazim olan real deyeri
+gormesi lazim gelir. Bunu etmek ucun biz volatile keyword istifade edirik. VolatileAndAtomicExample classinda buna uygun numune
+yazdim. Atomic ise volatile evezlemek ucun istifade olunur. Bu zaman deyisenin qarsisinda atomic yazmaqla prosesi daha
+funksional etmek mumkundur.
+
+
+Join() nedir? - .join() metodunu istifade etmekde meqsed thread'in isinin bitmesinden sonra digerlerinin isinin davam
+etmesini temin etmekdir. Yeni thread die veziyyetinde olduqdan sonra diger thread islemeye baslasin. Ve ya iki thread
+varsa her iki thread die veziyyetinde olduqdan sonra main thread islemeye baslasin.
+
+
+Synchronized nedir? - synchronized iki thread'in eyni deyisene ve ya metode eyni anda muraciet edib etmemesini teyin
+edir. Yeni hemin metoda eyni anda iki thread'in muraciet etmesi bloklanir.
+
+Lock nedir? - Synchronized emeliyyati ozu umumilikde lock adlanir. Dead lock ise lock veziyyetinin xususi variantidir.
+Dead lock'u hell etmek ucun xususi bir hell yolu yoxdur. Bunun ucun kodumuzu tekrar analiz etmeli ve dead lock bas veren
+hisseni yeniden yazmaliyiq.
+
+Wait() ve Notify() nedir? - Thread'lerin isleyen zaman bir-birini gozlemesi ve bir-birine xeberdarliq etmesi
+ucun istifade edilir. Meselen, iki thread'imiz var. Bu thread'lerden birinde her hansi bir yerde wait() emrini veririk.
+Diger thread'de ise notify() emrini veririk. Bu zaman thread1'de wait emrine qeder olan hisse isleyecek ve gozleyecek.
+Ikinci thread ise isini bitirdikden sonra notify vasitesile isin bitdiyini thread1'e xeber edecek. Ve thread1 oz
+isine qaldigi yerden davam edecek.
